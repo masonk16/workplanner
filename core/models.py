@@ -22,8 +22,8 @@ class Shifts(models.Model):
         ('16-24', '16-24')
     ]
     shift_date = models.DateField()
-    shift_time = models.CharField(choices=SHIFT_TIMES)
+    shift_time = models.CharField(choices=SHIFT_TIMES, max_length=10)
     employee = models.ForeignKey(Employees, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.shift_date
+    class Meta:
+        ordering = ['shift_date', 'shift_time']

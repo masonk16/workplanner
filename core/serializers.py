@@ -1,14 +1,14 @@
 from rest_framework import serializers
-from models import Employees, Shifts
+from core.models import Employees, Shifts
 
 
-class EmployeesSerializer(serializers.HyperlinkedModelSerializer):
+class EmployeesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employees
-        fields = ['url', 'first_name', 'last_name', 'email', 'shifts']
+        fields = ['id', 'first_name', 'last_name', 'email']
 
 
-class ShiftsSerializer(serializers.HyperlinkedModelSerializer):
+class ShiftsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shifts
-        fields = ['url', 'shift_date', 'shift_time', 'employee']
+        fields = ['id', 'shift_date', 'shift_time', 'employee']
