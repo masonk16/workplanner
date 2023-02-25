@@ -23,7 +23,11 @@ class Shifts(models.Model):
     ]
     shift_date = models.DateField()
     shift_time = models.CharField(choices=SHIFT_TIMES, max_length=10)
-    employee = models.ForeignKey(Employees, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employees, related_name='shifts', on_delete=models.CASCADE)
 
     class Meta:
+        unique_together = ['employee', 'shift_date']
         ordering = ['shift_date', 'shift_time']
+
+    def __str__(self):
+        return '%s, %s' % (self.shift_date, self.shift_time)

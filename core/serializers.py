@@ -3,9 +3,11 @@ from core.models import Employees, Shifts
 
 
 class EmployeesSerializer(serializers.ModelSerializer):
+    shifts = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = Employees
-        fields = ['id', 'first_name', 'last_name', 'email']
+        fields = ['id', 'first_name', 'last_name', 'email', 'shifts']
 
 
 class ShiftsSerializer(serializers.ModelSerializer):
