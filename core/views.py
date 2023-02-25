@@ -15,3 +15,13 @@ class EmployeesList(generics.ListCreateAPIView):
 class EmployeesDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Employees.objects.all()
     serializer_class = EmployeesSerializer
+
+
+class ShiftsList(generics.ListCreateAPIView):
+    queryset = Shifts.objects.all()
+    serializer_class = ShiftsSerializer
+
+
+class ShiftsDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Shifts.objects.all()
+    serializer_class = ShiftsSerializer
