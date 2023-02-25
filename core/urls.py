@@ -7,7 +7,7 @@ urlpatterns = [
     path('employees/', views.EmployeesList.as_view()),
     path('employees/<int:pk>/', views.EmployeesDetail.as_view()),
     path('shifts/', views.ShiftsList.as_view()),
-    path('shitfs/<int:pk>', views.ShiftsDetail.as_view())
+    path('shifts/<int:pk>', views.ShiftsDetail.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
